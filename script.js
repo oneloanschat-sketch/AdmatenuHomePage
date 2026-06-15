@@ -64,8 +64,14 @@
     var list = (v.getAttribute("data-playlist") || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean);
     var i = 0;
     var hasPlayed = false;
+    var userWantsSound = false;
     function play() { 
-      v.muted = true;
+      if (!userWantsSound) {
+        v.muted = true;
+      } else {
+        v.muted = false;
+        v.volume = 1;
+      }
       v.setAttribute("playsinline", "");
       var p = v.play(); 
       if (p && p.catch) {
@@ -96,12 +102,13 @@
     var soundBtn = $("#videoSound");
     if (soundBtn) {
       soundBtn.addEventListener("click", function () {
-        v.muted = !v.muted;
-        var on = !v.muted;
+        userWantsSound = !userWantsSound;
+        var on = userWantsSound;
+        v.muted = !on;
         soundBtn.setAttribute("aria-pressed", String(on));
         var t = soundBtn.querySelector(".vs-text");
         if (t) t.textContent = on ? "השתק" : "הפעל קול";
-        if (on) { v.volume = 1; play(); }
+        if (on) { play(); }
       });
     }
   })();
