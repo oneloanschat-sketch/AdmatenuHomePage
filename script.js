@@ -63,7 +63,23 @@
     if (!v) return;
     var list = (v.getAttribute("data-playlist") || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean);
     var i = 0;
-    function play() { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    var hasPlayed = false;
+    function play() { 
+      v.muted = true;
+      v.setAttribute("playsinline", "");
+      var p = v.play(); 
+      if (p && p.catch) {
+        p.then(function(){ hasPlayed = true; }).catch(function () { hasPlayed = false; });
+      } else {
+        hasPlayed = true;
+      }
+    }
+    document.addEventListener("touchstart", function() {
+      if (!hasPlayed) { play(); }
+    }, { once: true, passive: true });
+    document.addEventListener("click", function() {
+      if (!hasPlayed) { play(); }
+    }, { once: true, passive: true });
     if (list.length > 1) {
       v.addEventListener("ended", function () {
         i = (i + 1) % list.length;
