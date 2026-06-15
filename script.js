@@ -101,14 +101,22 @@
     /* כפתור הפעלת/השתקת קול */
     var soundBtn = $("#videoSound");
     if (soundBtn) {
-      soundBtn.addEventListener("click", function () {
+      soundBtn.addEventListener("click", function (e) {
+        if (e) { e.preventDefault(); e.stopPropagation(); }
         userWantsSound = !userWantsSound;
         var on = userWantsSound;
+        
+        // פתרון קסם ל-iOS: חייבים לעצור, לשנות מצב השתקה, ואז לנגן שוב
+        if (!v.paused) v.pause();
+        
         v.muted = !on;
+        if (on) v.volume = 1;
+        
         soundBtn.setAttribute("aria-pressed", String(on));
         var t = soundBtn.querySelector(".vs-text");
         if (t) t.textContent = on ? "השתק" : "הפעל קול";
-        if (on) { play(); }
+        
+        play();
       });
     }
   })();
