@@ -1,0 +1,27 @@
+# ============================================================
+# render.yaml — פריסת אדמתנו ביתנו כאתר סטטי ב-Render
+# מסמך רשמי: https://render.com/docs/blueprint-spec
+# ============================================================
+services:
+  - type: web
+    name: admateinu-beitenu
+    runtime: static
+    # אין צורך ב-build (אתר סטטי בלבד). הפקודה ריקה בכוונה:
+    buildCommand: ""
+    # התיקייה שתפורסם — שורש הריפו (כל הקבצים בשורש):
+    staticPublishPath: .
+
+    # כותרות אבטחה וקאשינג בסיסיות:
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
