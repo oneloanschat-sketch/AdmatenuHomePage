@@ -827,7 +827,7 @@ section { padding: 64px 0; }
    ABOUT DESCRIPTION
    ============================================================ */
 .about-desc {
-  text-align: right;
+  text-align: justify;
   margin-top: 30px;
   font-size: 1rem;
   line-height: 1.6;
