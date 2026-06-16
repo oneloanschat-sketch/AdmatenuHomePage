@@ -534,7 +534,7 @@ section { padding: 64px 0; }
 .happy-title { text-align:center; font-size:1.4rem; margin:46px 0 18px; color:var(--navy); }
 .happy-row { display:grid; gap:16px; max-width:1000px; margin:0 auto; grid-template-columns:1fr; }
 .happy-card { margin:0; background:#fff; border:1px solid var(--line); border-radius: var(--radius); padding:10px; box-shadow: var(--shadow); overflow:hidden; }
-.happy-card img.happy-img { width:100%; height: 260px; display:block; border-radius: var(--radius-sm); object-fit: cover; object-position: top; }
+.happy-card img.happy-img { width:100%; height: 200px; display:block; border-radius: var(--radius-sm); object-fit: cover; object-position: top; }
 @media (min-width:768px){ .happy-row { grid-template-columns: repeat(2,1fr); } }
 @media (min-width:1024px){ .happy-row { grid-template-columns: repeat(4,1fr); } }
 
