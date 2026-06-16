@@ -822,3 +822,30 @@ section { padding: 64px 0; }
     padding: 10px 16px 16px;
   }
 }
+
+/* ============================================================
+   ABOUT DESCRIPTION
+   ============================================================ */
+.about-desc {
+  text-align: right;
+  margin-top: 30px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg-soft);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+.about-desc p {
+  margin-bottom: 15px;
+}
+.about-desc p:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .about-desc {
+    padding: 16px;
+    font-size: 0.95rem;
+  }
+}
