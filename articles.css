@@ -38,15 +38,15 @@
 
 .articles-kicker {
   display: inline-block;
-  background: rgba(212, 175, 55, 0.15);
-  color: #d4af37;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
   font-size: 0.95rem;
   font-weight: 700;
   padding: 8px 22px;
   border-radius: 30px;
   margin-bottom: 20px;
   letter-spacing: 0.02em;
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
 .articles-hero h1 {
