@@ -535,7 +535,8 @@ section { padding: 64px 0; }
 .happy-row { display:grid; gap:16px; max-width:1000px; margin:0 auto; grid-template-columns:1fr; }
 .happy-card { margin:0; background:#fff; border:1px solid var(--line); border-radius: var(--radius); padding:10px; box-shadow: var(--shadow); overflow:hidden; }
 .happy-card img.happy-img { width:100%; height:auto; display:block; border-radius: var(--radius-sm); }
-@media (min-width:768px){ .happy-row { grid-template-columns: repeat(3,1fr); } }
+@media (min-width:768px){ .happy-row { grid-template-columns: repeat(2,1fr); } }
+@media (min-width:1024px){ .happy-row { grid-template-columns: repeat(4,1fr); } }
 
 /* ============================================================
    עדכון 3 — מעבר לעיצוב בהיר, עדין והרמוני (כמו ההירו)
