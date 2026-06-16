@@ -338,6 +338,10 @@
     }
 
     function onSuccess() {
+      try { localStorage.setItem("leadFormSubmitted", "true"); } catch (e) {}
+      var popup = $("#chatPopup");
+      if (popup) popup.style.display = "none";
+
       if (status) {
         status.textContent = "תודה! קיבלנו את הפרטים — ניצור איתך קשר בהקדם. אפשר גם להתקשר 054-555-4588.";
         status.className = "form-status ok";
@@ -352,6 +356,70 @@
         status.className = "form-status bad";
       }
       openWhatsApp();
+    }
+  })();
+
+  /* ---------- צ'אט בוט קופץ אוטומטית כשהפוטר נראה ---------- */
+  (function automaticChatPopup() {
+    var popup = document.getElementById("chatPopup");
+    if (!popup) return;
+
+    var closeBtn = document.getElementById("closeChatPopup");
+    var footer = document.querySelector(".site-footer");
+    if (!footer) return;
+
+    var isDismissed = false;
+    try { isDismissed = sessionStorage.getItem("chatPopupDismissed") === "true"; } catch(e) {}
+
+    function isFormSubmitted() {
+      try { return localStorage.getItem("leadFormSubmitted") === "true"; } catch(e) { return false; }
+    }
+
+    function showPopup() {
+      if (isDismissed || isFormSubmitted()) return;
+      if (popup.style.display !== "flex") {
+        popup.style.display = "flex";
+        popup.setAttribute("aria-hidden", "false");
+        try { if (window.fbq) window.fbq("trackCustom", "chat_popup_shown"); } catch(e) {}
+        try { if (window.dataLayer) window.dataLayer.push({ event: "chat_popup_shown" }); } catch(e) {}
+      }
+    }
+
+    function hidePopup() {
+      popup.style.display = "none";
+      popup.setAttribute("aria-hidden", "true");
+      isDismissed = true;
+      try { sessionStorage.setItem("chatPopupDismissed", "true"); } catch(e) {}
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        hidePopup();
+      });
+    }
+
+    /* שימוש ב-IntersectionObserver — מופעל כשהפוטר נכנס לתצוגה */
+    if ("IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            showPopup();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(footer);
+    } else {
+      /* fallback לדפדפנים ישנים */
+      window.addEventListener("scroll", function fallback() {
+        var scrollPos = window.innerHeight + window.pageYOffset;
+        var pageH = document.documentElement.scrollHeight;
+        if (scrollPos >= pageH - 300) {
+          showPopup();
+          window.removeEventListener("scroll", fallback);
+        }
+      }, { passive: true });
     }
   })();
 
