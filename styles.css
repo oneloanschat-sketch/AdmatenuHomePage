@@ -590,6 +590,7 @@ section { padding: 64px 0; }
 
 /* כיתוב המלצות לקוחות */
 .happy-card figcaption { color: var(--ink); font-size:.9rem; line-height:1.55; padding:10px 8px 4px; text-align:center; font-weight:600; }
+.happy-disclaimer { text-align:center; font-size:.85rem; color: var(--muted); margin-top: 20px; line-height: 1.4; }
 
 /* ============================================================
    עדכון 4 — משפט הירו, כפתור קול, אריחי מי אנחנו, סקשן WOW
