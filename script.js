@@ -294,9 +294,7 @@
       btn.disabled = true; btn.textContent = "שולח...";
 
       var action = form.getAttribute("action") || "";
-      var keyField = form.querySelector('input[name="access_key"]');
-      var key = keyField ? keyField.value : "";
-      var configured = action && key && key.indexOf("YOUR_") === -1;
+      var configured = action && action.startsWith("https://") && action.indexOf("YOUR_") === -1;
 
       track("Lead"); /* אירוע המרה לפיקסל */
 
