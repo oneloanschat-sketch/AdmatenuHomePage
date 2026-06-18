@@ -156,7 +156,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .hero-inner { position: relative; z-index: 1; display: grid; gap: 32px; }
 .eyebrow {
-  display: inline-block; font-family: var(--font-head); font-weight: 700; font-size: 1.2rem;
+  display: inline-block; font-family: var(--font-head); font-weight: 700; font-size: .95rem;
   color: var(--green-dark); background: rgba(61,170,65,.12); padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
 }
 .hero h1 { font-size: clamp(2rem, 7vw, 3.4rem); font-weight: 900; letter-spacing: -.5px; }
