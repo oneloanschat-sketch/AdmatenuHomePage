@@ -421,4 +421,112 @@
     }
   })();
 
+  /* ---------- Exit Intent Popup ---------- */
+  (function exitIntentPopup() {
+    var popup = document.getElementById("exitPopup");
+    if (!popup) return;
+
+    var closeBtn  = document.getElementById("exitPopupClose");
+    var overlay   = document.getElementById("exitPopupOverlay");
+    var form      = document.getElementById("exitForm");
+    var statusEl  = document.getElementById("exitStatus");
+    var submitBtn = document.getElementById("exitSubmitBtn");
+    var nameEl    = document.getElementById("exitName");
+    var phoneEl   = document.getElementById("exitPhone");
+
+    var shown = false;
+
+    function isConverted() {
+      try { return localStorage.getItem("leadFormSubmitted") === "true"; } catch(e) { return false; }
+    }
+    function isDismissed() {
+      try { return sessionStorage.getItem("exitPopupDismissed") === "true"; } catch(e) { return false; }
+    }
+
+    function show() {
+      if (shown || isConverted() || isDismissed()) return;
+      shown = true;
+      popup.style.display = "flex";
+      popup.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      setTimeout(function() { if (nameEl) nameEl.focus(); }, 100);
+    }
+
+    function hide() {
+      popup.style.display = "none";
+      popup.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      try { sessionStorage.setItem("exitPopupDismissed", "true"); } catch(e) {}
+    }
+
+    /* דסקטופ: עכבר עוזב את החלון מלמעלה */
+    document.addEventListener("mouseleave", function(e) {
+      if (e.clientY < 10) show();
+    });
+
+    /* מובייל: גלילה מהירה למעלה (סימן לחזרה) */
+    var lastScrollY = window.scrollY;
+    window.addEventListener("scroll", function() {
+      var cur = window.scrollY;
+      if (lastScrollY - cur > 80 && cur < 300) show();
+      lastScrollY = cur;
+    }, { passive: true });
+
+    /* טיימר: אחרי 45 שניות אם לא המיר */
+    setTimeout(function() { if (!isConverted()) show(); }, 45000);
+
+    /* סגירה */
+    if (closeBtn) closeBtn.addEventListener("click", hide);
+    if (overlay)  overlay.addEventListener("click",  hide);
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape" && popup.style.display !== "none") hide();
+    });
+
+    /* שליחת טופס */
+    if (form) {
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        var ok = true;
+        if (nameEl)  nameEl.classList.remove("err-field");
+        if (phoneEl) phoneEl.classList.remove("err-field");
+
+        if (!nameEl || nameEl.value.trim().length < 2) {
+          if (nameEl) nameEl.classList.add("err-field");
+          ok = false;
+        }
+        var digits = phoneEl ? phoneEl.value.replace(/[^0-9]/g, "") : "";
+        if (!/^0(5\d|[2-489])\d{7}$/.test(digits)) {
+          if (phoneEl) phoneEl.classList.add("err-field");
+          ok = false;
+        }
+        if (!ok) return;
+
+        var orig = submitBtn ? submitBtn.textContent : "";
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "שולח..."; }
+
+        var data = new FormData(form);
+        fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } })
+          .then(function(res) {
+            if (res.ok) {
+              if (statusEl) { statusEl.textContent = "✅ תודה! ניצור איתך קשר בהקדם."; statusEl.className = "exit-status ok"; }
+              try { localStorage.setItem("leadFormSubmitted", "true"); } catch(e) {}
+              track("exit_popup_lead");
+              setTimeout(hide, 2500);
+            } else { throw new Error(); }
+          })
+          .catch(function() {
+            /* fallback לוואטסאפ */
+            var msg = "שלום, אני מעוניין בייעוץ:\nשם: " +
+              (nameEl ? nameEl.value.trim() : "") + "\nטלפון: " +
+              (phoneEl ? phoneEl.value.trim() : "");
+            window.open("https://wa.me/972587554588?text=" + encodeURIComponent(msg), "_blank", "noopener");
+            hide();
+          })
+          .finally(function() {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = orig; }
+          });
+      });
+    }
+  })();
+
 })();

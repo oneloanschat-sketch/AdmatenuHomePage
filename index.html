@@ -788,6 +788,38 @@
   </div>
 </div>
 
+<!-- ============================ EXIT INTENT POPUP ============================ -->
+<div id="exitPopup" class="exit-popup" role="dialog" aria-modal="true" aria-hidden="true"
+     aria-labelledby="exitPopupTitle" style="display:none;">
+  <div class="exit-popup-overlay" id="exitPopupOverlay"></div>
+  <div class="exit-popup-card">
+    <button class="exit-popup-close" id="exitPopupClose" aria-label="סגירת חלון">&times;</button>
+    <span class="exit-popup-icon">⏳</span>
+    <span class="exit-popup-urgency">רגע לפני שאתה הולך!</span>
+    <h2 id="exitPopupTitle" class="exit-popup-title">ניצור איתך קשר תוך שעה!</h2>
+    <p class="exit-popup-sub">השאר שם וטלפון — המומחה שלנו יחזור אליך <strong>ללא עלות ולא התחייבות.</strong></p>
+    <form id="exitForm" class="exit-form" novalidate
+          action="https://formsubmit.co/ajax/spiraly4u@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="ליד דחוף מפופ-אפ — אדמתנו ביתנו" />
+      <input type="hidden" name="_cc" value="yoniwh@gmail.com,sapiri0911@gmail.com" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <div class="exit-field">
+        <input type="text" id="exitName" name="שם מלא" placeholder="השם שלך *"
+               required aria-required="true" autocomplete="name" />
+      </div>
+      <div class="exit-field">
+        <input type="tel" id="exitPhone" name="טלפון" placeholder="מספר טלפון *"
+               required aria-required="true" inputmode="tel" autocomplete="tel" />
+      </div>
+      <button type="submit" class="btn btn-success btn-lg btn-block exit-submit"
+              id="exitSubmitBtn">כן! חזרו אליי בהקדם 🙏</button>
+      <p class="exit-status" id="exitStatus" role="status" aria-live="polite"></p>
+    </form>
+    <p class="exit-privacy">🔒 הפרטים שלך שמורים אצלנו בלבד</p>
+  </div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
