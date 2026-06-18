@@ -788,6 +788,37 @@
   </div>
 </div>
 
+<!-- ============================ TOAST NOTIFICATION ============================ -->
+<div id="toastNotif" class="toast-notif" role="status" aria-live="polite" aria-hidden="true" style="display:none;">
+  <button class="toast-close" id="toastClose" aria-label="סגור">×</button>
+  <div class="toast-body">
+    <span class="toast-icon">👋</span>
+    <div>
+      <strong class="toast-title">יש שאלה קצרה?</strong>
+      <p class="toast-msg">המומחים שלנו זמינים עכשיו!</p>
+    </div>
+  </div>
+  <a href="https://wa.me/972587554588" target="_blank" rel="noopener"
+     class="btn btn-whatsapp btn-sm toast-btn" data-track="whatsapp_toast">💬 שלח וואטסאפ</a>
+</div>
+
+<!-- ============================ DESKTOP STICKY BAR ============================ -->
+<div id="stickyBar" class="sticky-bar" aria-hidden="true" style="display:none;">
+  <div class="sticky-bar-inner">
+    <span class="sticky-bar-text">ייעוץ משכנתא ראשוני — חינם ללא התחייבות!</span>
+    <div class="sticky-bar-actions">
+      <a href="tel:0545554588" class="sticky-bar-btn sticky-bar-call" data-track="call_sticky">
+        📞 054-555-4588
+      </a>
+      <a href="https://wa.me/972587554588" target="_blank" rel="noopener"
+         class="sticky-bar-btn sticky-bar-wa" data-track="whatsapp_sticky">
+        💬 וואטסאפ
+      </a>
+    </div>
+  </div>
+  <button class="sticky-bar-close" id="stickyBarClose" aria-label="סגור">×</button>
+</div>
+
 <!-- ============================ EXIT INTENT POPUP ============================ -->
 <div id="exitPopup" class="exit-popup" role="dialog" aria-modal="true" aria-hidden="true"
      aria-labelledby="exitPopupTitle" style="display:none;">

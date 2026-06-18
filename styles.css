@@ -408,7 +408,7 @@ section { padding: 64px 0; }
   width: 60px; height: 60px; border-radius: 50%;
   background: linear-gradient(135deg, #25D366, #128C4B);
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 12px 30px rgba(18,140,75,.45); animation: pulse 2.4s infinite;
+  box-shadow: 0 12px 30px rgba(18,140,75,.45); animation: pulse 3s ease-in-out infinite;
 }
 .float-whatsapp svg { width: 34px; height: 34px; fill: #fff; }
 .float-tip {
@@ -418,7 +418,13 @@ section { padding: 64px 0; }
   transition: .25s; box-shadow: var(--shadow);
 }
 .float-whatsapp:hover .float-tip { opacity: 1; transform: translateY(-50%) scale(1); }
-@keyframes pulse { 0%,100% { box-shadow: 0 12px 30px rgba(18,140,75,.45), 0 0 0 0 rgba(37,211,102,.4); } 50% { box-shadow: 0 12px 30px rgba(18,140,75,.45), 0 0 0 14px rgba(37,211,102,0); } }
+@keyframes pulse {
+  0%   { transform: translateY(0) scale(1);      box-shadow: 0 12px 30px rgba(18,140,75,.5), 0 0 0 0 rgba(37,211,102,.6); }
+  25%  { transform: translateY(-16px) scale(1.07); box-shadow: 0 20px 40px rgba(18,140,75,.5), 0 0 0 20px rgba(37,211,102,0); }
+  50%  { transform: translateY(-8px) scale(1);    box-shadow: 0 15px 32px rgba(18,140,75,.45), 0 0 0 0 rgba(37,211,102,.35); }
+  75%  { transform: translateY(-20px) scale(1.1); box-shadow: 0 24px 44px rgba(18,140,75,.5), 0 0 0 24px rgba(37,211,102,0); }
+  100% { transform: translateY(0) scale(1);      box-shadow: 0 12px 30px rgba(18,140,75,.5), 0 0 0 0 rgba(37,211,102,.6); }
+}
 
 .mobile-bar {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 950;
@@ -934,4 +940,87 @@ section { padding: 64px 0; }
 @media (max-width: 480px) {
   .exit-popup-card { padding: 36px 20px 24px; border-radius: 18px; }
   .exit-popup-title { font-size: 1.35rem; }
+}
+
+/* ============================================================
+   TOAST NOTIFICATION
+   ============================================================ */
+.toast-notif {
+  position: fixed; bottom: 24px; left: 24px;
+  z-index: 9500;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  max-width: 280px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.18);
+  border-right: 4px solid var(--teal);
+  animation: toastSlideIn .4s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes toastSlideIn {
+  from { opacity: 0; transform: translateY(20px) scale(.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.toast-notif.hiding {
+  animation: toastSlideOut .3s ease-in both;
+}
+@keyframes toastSlideOut {
+  to { opacity: 0; transform: translateY(20px) scale(.9); }
+}
+.toast-close {
+  position: absolute; top: 8px; right: 8px;
+  background: none; border: none;
+  font-size: 1.1rem; cursor: pointer; color: #99aab8;
+  line-height: 1; padding: 4px;
+}
+.toast-close:hover { color: var(--navy); }
+.toast-body { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+.toast-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+.toast-title { font-weight: 700; font-size: .95rem; color: var(--navy); display: block; margin-bottom: 2px; }
+.toast-msg { font-size: .85rem; color: #5a6a7e; margin: 0; }
+.toast-btn { width: 100%; text-align: center; font-size: .88rem !important; padding: 8px 12px !important; }
+
+/* ============================================================
+   DESKTOP STICKY BAR
+   ============================================================ */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  z-index: 9400;
+  background: linear-gradient(135deg, var(--navy) 0%, #1a5080 100%);
+  color: #fff;
+  padding: 10px 24px;
+  align-items: center; justify-content: center;
+  gap: 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,.22);
+  animation: stickyBarUp .4s ease both;
+}
+@keyframes stickyBarUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+.sticky-bar-inner {
+  display: flex; align-items: center; gap: 20px; flex: 1;
+  justify-content: center; flex-wrap: wrap;
+}
+.sticky-bar-text { font-size: .95rem; font-weight: 600; opacity: .95; white-space: nowrap; }
+.sticky-bar-actions { display: flex; gap: 10px; }
+.sticky-bar-btn {
+  padding: 7px 20px; border-radius: 999px;
+  font-size: .9rem; font-weight: 700;
+  text-decoration: none; white-space: nowrap;
+  transition: transform .15s, opacity .15s;
+  display: inline-block;
+}
+.sticky-bar-btn:hover { transform: scale(1.04); opacity: .9; }
+.sticky-bar-call { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.35); }
+.sticky-bar-wa   { background: #25D366; color: #fff; }
+.sticky-bar-close {
+  background: none; border: none;
+  color: rgba(255,255,255,.55); font-size: 1.4rem;
+  cursor: pointer; padding: 4px 8px;
+  transition: color .2s; flex-shrink: 0; line-height: 1;
+}
+.sticky-bar-close:hover { color: #fff; }
+@media (max-width: 767px) {
+  .sticky-bar { display: none !important; }
+  .toast-notif { bottom: 80px; left: 10px; right: 10px; max-width: none; border-right: none; border-top: 4px solid var(--teal); }
 }

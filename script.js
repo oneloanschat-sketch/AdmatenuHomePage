@@ -421,6 +421,68 @@
     }
   })();
 
+  /* ---------- Toast Notification ---------- */
+  (function toastNotification() {
+    var toast   = document.getElementById("toastNotif");
+    var closeBtn = document.getElementById("toastClose");
+    if (!toast) return;
+
+    function isConverted() {
+      try { return localStorage.getItem("leadFormSubmitted") === "true"; } catch(e) { return false; }
+    }
+    function wasDismissed() {
+      try { return sessionStorage.getItem("toastDismissed") === "true"; } catch(e) { return false; }
+    }
+    function hideToast() {
+      toast.classList.add("hiding");
+      setTimeout(function() {
+        toast.style.display = "none";
+        toast.setAttribute("aria-hidden", "true");
+      }, 300);
+      try { sessionStorage.setItem("toastDismissed", "true"); } catch(e) {}
+    }
+    function showToast() {
+      if (isConverted() || wasDismissed()) return;
+      toast.style.display = "block";
+      toast.setAttribute("aria-hidden", "false");
+      setTimeout(hideToast, 6000); /* נעלם אחרי 6 שניות */
+    }
+    if (closeBtn) closeBtn.addEventListener("click", hideToast);
+    setTimeout(showToast, 15000); /* מופיע אחרי 15 שניות */
+  })();
+
+  /* ---------- Desktop Sticky Bar ---------- */
+  (function desktopStickyBar() {
+    var bar      = document.getElementById("stickyBar");
+    var closeBtn = document.getElementById("stickyBarClose");
+    if (!bar) return;
+
+    function isConverted() {
+      try { return localStorage.getItem("leadFormSubmitted") === "true"; } catch(e) { return false; }
+    }
+    function wasDismissed() {
+      try { return sessionStorage.getItem("stickyBarDismissed") === "true"; } catch(e) { return false; }
+    }
+    if (isConverted() || wasDismissed()) return;
+
+    function onScroll() {
+      if (window.scrollY > 400 && bar.style.display === "none") {
+        bar.style.display = "flex";
+        bar.setAttribute("aria-hidden", "false");
+        window.removeEventListener("scroll", onScroll);
+      }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function() {
+        bar.style.display = "none";
+        try { sessionStorage.setItem("stickyBarDismissed", "true"); } catch(e) {}
+      });
+    }
+  })();
+
   /* ---------- Exit Intent Popup ---------- */
   (function exitIntentPopup() {
     var popup = document.getElementById("exitPopup");
