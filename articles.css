@@ -393,6 +393,173 @@
   font-weight: 700;
 }
 
+/* ===== NEW Article Badge ===== */
+.article-card-new-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #d4af37 0%, #f0d060 100%);
+  color: #0e3a5f;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-inline-start: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  animation: newBadgePulse 2.5s ease-in-out infinite;
+  vertical-align: middle;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+@keyframes newBadgePulse {
+  0%, 100% { box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3); }
+  50% { box-shadow: 0 2px 16px rgba(212, 175, 55, 0.6); }
+}
+
+/* ===== Article Inline Section Heading ===== */
+.article-inline-heading {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--navy, #0e3a5f);
+  margin: 32px 0 12px;
+  padding-right: 16px;
+  border-right: 4px solid #d4af37;
+  line-height: 1.4;
+}
+
+.article-inline-heading:first-child {
+  margin-top: 0;
+}
+
+/* ===== Checklist inside articles ===== */
+.article-checklist {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.article-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #f7f9fc 0%, #eef5fa 100%);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-weight: 600;
+  color: var(--navy, #0e3a5f);
+  border: 1px solid rgba(14, 58, 95, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-checklist li:hover {
+  transform: translateX(-4px);
+  box-shadow: 0 4px 16px rgba(14, 58, 95, 0.08);
+}
+
+.article-checklist .check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.article-checklist .check-icon.accent-1 { background: rgba(42, 106, 142, 0.12); }
+.article-checklist .check-icon.accent-2 { background: rgba(212, 175, 55, 0.15); }
+.article-checklist .check-icon.accent-3 { background: rgba(72, 187, 120, 0.12); }
+.article-checklist .check-icon.accent-4 { background: rgba(237, 137, 54, 0.12); }
+.article-checklist .check-icon.accent-5 { background: rgba(159, 122, 234, 0.12); }
+
+/* ===== Compact insight group (for lists of items) ===== */
+.insight-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.insight-group .insight-block {
+  margin: 0;
+  padding: 18px 20px;
+}
+
+.insight-group .insight-block h3 {
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* ===== Styled list inside content ===== */
+.article-styled-list {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 0;
+}
+
+.article-styled-list li {
+  position: relative;
+  padding-right: 24px;
+  color: #2d3748;
+  line-height: 1.7;
+}
+
+.article-styled-list li::before {
+  content: '●';
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #2a6a8e;
+  font-size: 0.7em;
+  line-height: 2.4;
+}
+
+/* ===== Score/Rating Badge ===== */
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #0e3a5f 0%, #1a5a7e 100%);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin: 8px 0 16px;
+}
+
+.score-badge .score-value {
+  color: #d4af37;
+  font-size: 1.1em;
+}
+
+/* ===== Article content separator ===== */
+.article-separator {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), rgba(14, 58, 95, 0.1), transparent);
+  border: none;
+  margin: 32px 0;
+}
+
+/* ===== Compact insight block variant for dictionary ===== */
+.insight-block.compact {
+  padding: 18px 22px;
+  margin: 10px 0;
+}
+
+.insight-block.compact h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.insight-block.compact p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
 /* ===== Animation ===== */
 @keyframes fadeInUp {
   from {
@@ -445,3 +612,30 @@
     max-width: 860px;
   }
 }
+
+ / *   = = = = =   D i c t i o n a r y   D i c t i o n a r y   S t y l i n g   = = = = =   * / 
+ . d i c t i o n a r y - l i s t   { 
+     m a r g i n :   2 0 p x   0 ; 
+     p a d d i n g :   0 ; 
+ } 
+ . d i c t i o n a r y - t e r m   { 
+     b a c k g r o u n d :   # f d f d f d ; 
+     b o r d e r - r i g h t :   4 p x   s o l i d   # 1 a 5 a 7 e ; 
+     p a d d i n g :   1 6 p x   2 0 p x ; 
+     m a r g i n - b o t t o m :   1 6 p x ; 
+     b o r d e r - r a d i u s :   8 p x ; 
+     b o x - s h a d o w :   0   2 p x   1 0 p x   r g b a ( 0 , 0 , 0 , 0 . 0 3 ) ; 
+ } 
+ . d i c t i o n a r y - t e r m   d t   { 
+     f o n t - w e i g h t :   8 0 0 ; 
+     f o n t - s i z e :   1 . 2 r e m ; 
+     c o l o r :   # 0 e 3 a 5 f ; 
+     m a r g i n - b o t t o m :   8 p x ; 
+ } 
+ . d i c t i o n a r y - t e r m   d d   { 
+     m a r g i n :   0 ; 
+     c o l o r :   # 4 a 5 5 6 8 ; 
+     l i n e - h e i g h t :   1 . 6 ; 
+ } 
+  
+ 
