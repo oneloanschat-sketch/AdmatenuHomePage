@@ -139,7 +139,11 @@
   const publishDate = new Date('2026-06-22T00:00:00');
   const expirationDate = new Date(publishDate.getTime() + 7 * 24 * 60 * 60 * 1000);
   if (new Date() < expirationDate) {
-    document.getElementById('new-articles-banner').style.display = 'block';
+    const banner = document.getElementById('new-articles-banner');
+    banner.style.display = 'block';
+    setTimeout(() => {
+      banner.style.display = 'none';
+    }, 10000);
   }
 </script>
 <header class="site-header" id="top">
