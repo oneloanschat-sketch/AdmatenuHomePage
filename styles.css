@@ -534,7 +534,7 @@ section { padding: 64px 0; }
 .about-values span { color: rgba(255,255,255,.80); font-size:.96rem; }
 .about-tagline { text-align:center; font-family:var(--font-head); font-weight:800; font-size: clamp(1.1rem,3.2vw,1.5rem); color: var(--gold-light); margin:34px 0 24px; }
 .about-cta { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
-@media (min-width:768px){ .about-badges { grid-template-columns: repeat(3,1fr); } .about-values { grid-template-columns: repeat(2,1fr); } }
+@media (min-width:768px){ .about-badges { grid-template-columns: repeat(4,1fr); } .about-values { grid-template-columns: repeat(2,1fr); } }
 
 /* ---------- המלצות לקוחות (מרוצים) בשורה ---------- */
 .happy-title { text-align:center; font-size:1.4rem; margin:46px 0 18px; color:var(--navy); }
