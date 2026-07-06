@@ -1,0 +1,43 @@
+name: Auto Marketing Agent (Cloud)
+
+on:
+  schedule:
+    # רץ בימי שני וחמישי בשעה 16:00 UTC (שזה 19:00 שעון ישראל בקיץ)
+    - cron: '0 16 * * 1,4'
+  workflow_dispatch: # מאפשר הפעלה ידנית מתי שרוצים!
+
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install Dependencies
+        run: |
+          pip install requests python-dotenv google-generativeai
+          
+      - name: Write New Article (AI Agent)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python auto_writer.py
+          
+      - name: Publish to Facebook
+        env:
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+        run: |
+          python publish_social.py
+          
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "Auto Marketing Agent"
+          git config --global user.email "agent@admatenu.co.il"
+          git add articles.html
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-published new article 📝" && git push)

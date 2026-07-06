@@ -33,12 +33,14 @@ def post_to_facebook(message, local_image_path=None):
     }
     
     try:
-        if local_image_path:
+        if local_image_path and os.path.exists(local_image_path):
             with open(local_image_path, 'rb') as f:
                 files = {'source': f}
                 response = requests.post(url, data=payload, files=files)
         else:
-            response = requests.post(url, data=payload)
+            # אם רץ בענן ואין את התמונה המקומית, יפרסם רק טקסט (feed)
+            url_feed = f"{BASE_URL}/{PAGE_ID}/feed"
+            response = requests.post(url_feed, data=payload)
             
         if response.status_code == 200:
             logger.info(f"✅ פוסט פייסבוק פורסם בהצלחה! מזהה: {response.json().get('id', response.json().get('post_id'))}")
