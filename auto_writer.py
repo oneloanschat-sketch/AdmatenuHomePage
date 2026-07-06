@@ -2,6 +2,9 @@ import os
 import re
 import datetime
 import google.generativeai as genai
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # =========================================================================
 # כותב המאמרים האוטומטי (מופעל בענן דרך GitHub Actions)
