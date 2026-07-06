@@ -45,6 +45,7 @@ def generate_article_html():
           <p>מומחי אדמתנו ביתנו כאן עבורכם לבדיקה וייעוץ. השאירו פרטים או חייגו אלינו.</p>
         </div>
       </div>
+      <button class="article-toggle-btn" aria-expanded="false">קראו את המאמר המלא &larr;</button>
     </article>
     """
     

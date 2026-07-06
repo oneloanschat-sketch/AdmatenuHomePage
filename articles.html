@@ -112,6 +112,7 @@
       <p>מומחי אדמתנו ביתנו כאן עבורכם לבדיקה וייעוץ. השאירו פרטים או חייגו אלינו.</p>
     </div>
   </div>
+  <button class="article-toggle-btn" aria-expanded="false">קראו את המאמר המלא &larr;</button>
 </article>
 
       <article class="article-card" id="article-8">
@@ -3291,7 +3292,13 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.setAttribute('aria-expanded', !isOpen);
       expand.hidden = isOpen;
       card.classList.toggle('is-open', !isOpen);
-      btn.querySelector('.btn-text').textContent = isOpen ? 'קראו את המאמר המלא' : 'סגרו את המאמר';
+      
+      const btnText = btn.querySelector('.btn-text');
+      if (btnText) {
+        btnText.textContent = isOpen ? 'קראו את המאמר המלא' : 'סגרו את המאמר';
+      } else {
+        btn.innerHTML = isOpen ? 'קראו את המאמר המלא &larr;' : 'סגרו את המאמר';
+      }
 
       if (!isOpen) {
         card.scrollIntoView({ behavior: 'smooth', block: 'start' });
