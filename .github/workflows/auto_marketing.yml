@@ -29,6 +29,7 @@ jobs:
           python auto_writer.py
           
       - name: Publish to Facebook
+        continue-on-error: true
         env:
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
