@@ -42,7 +42,10 @@ def generate_article_html():
           <p>[פסקה 1 של המאמר]</p>
           <p>[פסקה 2 של המאמר]</p>
           <blockquote class="article-quote">[משפט הדגשה מרכזי מהמאמר]</blockquote>
-          <p>מומחי אדמתנו ביתנו כאן עבורכם לבדיקה וייעוץ. השאירו פרטים או חייגו אלינו.</p>
+          <div class="article-cta-box">
+            <p>📞 מומחי אדמתנו ביתנו כאן עבורכם לבדיקה וייעוץ אישי. השאירו פרטים או חייגו אלינו לשיחת התייעצות ללא התחייבות.</p>
+            <a href="https://wa.me/972587554588" target="_blank" rel="noopener" class="btn btn-primary">דברו איתנו בוואטסאפ</a>
+          </div>
         </div>
       </div>
       <button class="article-toggle-btn" aria-expanded="false">קראו את המאמר המלא &larr;</button>
