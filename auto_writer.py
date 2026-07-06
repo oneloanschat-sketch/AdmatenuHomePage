@@ -24,24 +24,35 @@ def generate_article_html():
     topic = topics[datetime.datetime.now().day % len(topics)]
     
     prompt = f"""
-    כתוב מאמר שיווקי מקצועי, קצר וקולע (כ-150 מילים) לאתר 'אדמתנו ביתנו' שעוסק בייעוץ משכנתאות ופיננסים למגזר הערבי והדרוזי.
+    כתוב מאמר שיווקי מקצועי, מקיף ומעמיק (כ-450 עד 500 מילים) לאתר 'אדמתנו ביתנו' שעוסק בייעוץ משכנתאות ופיננסים למגזר הערבי והדרוזי.
     הנושא: {topic}.
+    
+    חשוב מאוד: המאמר חייב להיות משכנע מאוד, ולכלול לאורך הטקסט ובמיוחד בסופו הנעה ברורה וחד-משמעית לפעולה (CTA) - להשאיר פרטים לייעוץ או לעבור לשיחה עם הצ'אט-בוט/מומחה שלנו בוואטסאפ!
     
     עליך להחזיר **רק** קוד HTML (ללא טקסט מקדים וללא תגיות markdown) שבנוי בדיוק במבנה הבא:
     <article class="article-card" id="article-NEW">
       <div class="article-card-inner">
         <div class="article-card-badge">💼 פיננסים</div>
-        <h2 class="article-card-title">[כותרת מושכת]</h2>
-        <p class="article-card-excerpt">[תקציר של שורה אחת המעורר סקרנות]</p>
+        <h2 class="article-card-title">[כותרת מושכת וחזקה]</h2>
+        <p class="article-card-excerpt">[תקציר של שורה אחת המעורר סקרנות ומניע לקריאה]</p>
         <div class="article-card-meta">
           <span class="meta-tag">[תגית רלוונטית]</span>
         </div>
       </div>
       <div class="article-expand" hidden>
         <div class="article-full-content">
-          <p>[פסקה 1 של המאמר]</p>
-          <p>[פסקה 2 של המאמר]</p>
-          <blockquote class="article-quote">[משפט הדגשה מרכזי מהמאמר]</blockquote>
+          <p>[פסקת מבוא שמושכת את הקורא]</p>
+          
+          <h3 class="article-section-title">[כותרת משנה 1]</h3>
+          <p>[תוכן מפורט ומעמיק]</p>
+          <p>[תוכן נוסף עם ערך מקצועי אמיתי]</p>
+          
+          <blockquote class="article-quote">[משפט הדגשה מרכזי מהמאמר שאי אפשר להתעלם ממנו]</blockquote>
+          
+          <h3 class="article-section-title">[כותרת משנה 2 - למה לבחור בנו?]</h3>
+          <p>[הסבר למה המומחים של אדמתנו ביתנו הם הפתרון]</p>
+          
+          <p>אל תחכו שהמצב יחמיר! השאירו עכשיו פרטים בטופס באתר שלנו או לחצו על הכפתור למטה כדי לעבור לשיחה מיידית בוואטסאפ ולקבל פתרון מותאם אישית.</p>
           <div class="article-cta-box">
             <p>📞 מומחי אדמתנו ביתנו כאן עבורכם לבדיקה וייעוץ אישי. השאירו פרטים או חייגו אלינו לשיחת התייעצות ללא התחייבות.</p>
             <a href="https://wa.me/972587554588" target="_blank" rel="noopener" class="btn btn-primary">דברו איתנו בוואטסאפ</a>
