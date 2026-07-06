@@ -10,3 +10,5 @@ desktop.ini
 # קבצים זמניים
 *.log
 *.tmp
+
+.env
