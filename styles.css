@@ -386,7 +386,7 @@ section { padding: 64px 0; }
 /* ============================================================
    FOOTER
    ============================================================ */
-.site-footer { background: var(--navy-deep); color: rgba(255,255,255,.82); padding-top: 50px; }
+.site-footer { background: var(--navy-deep); color: rgba(255,255,255,.82); padding-top: 50px; padding-bottom: 80px; }
 .footer-grid { display: grid; gap: 32px; }
 .footer-logo-chip { display: inline-flex; background: #fff; padding: 10px; border-radius: 14px; margin-bottom: 12px; }
 .footer-logo-chip img { height: 52px; width: auto; }
@@ -473,6 +473,7 @@ section { padding: 64px 0; }
   .hero h1 { font-size: 3.4rem; }
   .lead-form { padding: 36px; }
   .steps { grid-template-columns: repeat(4,1fr); }
+  .site-footer { padding-bottom: 20px; }
 }
 
 /* ---------- העדפת תנועה מופחתת ---------- */
