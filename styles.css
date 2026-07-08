@@ -404,7 +404,7 @@ section { padding: 64px 0; }
    FLOATING ELEMENTS
    ============================================================ */
 .float-whatsapp {
-  position: fixed; bottom: 22px; left: 18px; z-index: 900;
+  position: fixed; bottom: 90px; left: 18px; z-index: 960;
   width: 60px; height: 60px; border-radius: 50%;
   background: linear-gradient(135deg, #25D366, #128C4B);
   display: flex; align-items: center; justify-content: center;
