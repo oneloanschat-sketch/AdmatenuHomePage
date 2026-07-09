@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== SEO ===== -->
+  <title>פודקאסטים ווידאו | אדמתנו ביתנו</title>
+  <meta name="description" content="צפו בפודקאסטים ובסרטונים של אדמתנו ביתנו - המדריך הפיננסי המוביל בחברה הערבית למשכנתאות, מימון ונדל״ן." />
+  <meta name="theme-color" content="#0E3A5F" />
+  
+  <!-- ===== Open Graph / Social ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="he_IL" />
+  <meta property="og:site_name" content="אדמתנו ביתנו" />
+  <meta property="og:title" id="og-title" content="פודקאסטים ווידאו | אדמתנו ביתנו" />
+  <meta property="og:description" id="og-desc" content="צפו בפודקאסטים של אדמתנו ביתנו - המדריך הפיננסי המוביל בחברה הערבית למשכנתאות, מימון ונדל״ן." />
+  <meta property="og:url" id="og-url" content="https://www.ourland.co.il/podcasts.html" />
+  <meta property="og:image" content="https://www.ourland.co.il/assets/og-image.jpg" />
+
+  <!-- ===== פונטים ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Assistant:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="podcasts.css" />
+</head>
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="אדמתנו ביתנו — עמוד הבית">
+      <img src="assets/logo.png" alt="לוגו אדמתנו ביתנו" class="brand-logo" width="64" height="64" />
+      <span class="brand-text">
+        <strong>אדמתנו ביתנו</strong>
+        <small>הבית הפיננסי של החברה הערבית בישראל</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="ניווט ראשי">
+      <a href="index.html#about">מי אנחנו</a>
+      <a href="index.html#services">השירותים</a>
+      <a href="index.html#how">איך זה עובד</a>
+      <a href="index.html#stories">סיפורי הצלחה</a>
+      <a href="articles.html">מאמרים</a>
+      <a href="podcasts.html" class="active">פודקאסטים</a>
+    </nav>
+
+    <div class="header-cta">
+      <a class="btn btn-phone" href="tel:0545554588" data-track="call">
+        <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.3 11.3 0 003.5.56 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.2.2 2.4.56 3.5a1 1 0 01-.24 1z"/></svg>
+        <span>054-555-4588</span>
+      </a>
+      <a class="btn btn-primary" href="index.html#lead-form">השאירו פרטים</a>
+    </div>
+
+    <button class="nav-toggle" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================ MOBILE NAV ============================ -->
+<div class="mobile-nav-overlay" id="mobile-nav">
+  <div class="mobile-nav-content">
+    <button class="close-nav" aria-label="סגירת תפריט">✖</button>
+    <a href="index.html#about">מי אנחנו</a>
+    <a href="index.html#services">השירותים</a>
+    <a href="index.html#how">איך זה עובד</a>
+    <a href="index.html#stories">סיפורי הצלחה</a>
+    <a href="articles.html">מאמרים</a>
+    <a href="podcasts.html" class="active">פודקאסטים</a>
+    <a href="tel:0545554588" class="btn btn-primary" style="margin-top:20px;">התקשרו עכשיו</a>
+  </div>
+</div>
+
+<!-- ============================ HERO ============================ -->
+<section class="podcasts-hero">
+  <div class="container">
+    <h1 class="podcasts-title">פודקאסטים ווידאו</h1>
+    <p class="podcasts-subtitle">מומחי אדמתנו ביתנו מדברים על כל מה שחשוב לדעת בעולם הפיננסים, המשכנתאות והנדל״ן בחברה הערבית בישראל.</p>
+  </div>
+</section>
+
+<!-- ============================ MAIN CONTENT ============================ -->
+<main class="podcasts-main">
+  <div class="container podcasts-grid">
+    
+    <!-- Player Area -->
+    <div class="video-player-container">
+      <div class="video-wrapper">
+        <!-- Video element will be controlled by JS -->
+        <video id="main-video" controls playsinline preload="metadata">
+          <source src="assets/videos/vision.mp4" type="video/mp4">
+          הדפדפן שלך אינו תומך בניגון וידאו.
+        </video>
+      </div>
+      
+      <div class="video-info">
+        <h2 class="video-info-title" id="video-title">אדמתנו ביתנו: חזון פיננסי</h2>
+        <p class="video-info-desc" id="video-desc">היכרות עם הבית הפיננסי של החברה הערבית בישראל - החזון, הערכים והפתרונות הייחודיים שאנו מציעים לכל משפחה.</p>
+        
+        <a href="#" id="share-facebook" class="share-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+          שתפו בפייסבוק
+        </a>
+      </div>
+    </div>
+
+    <!-- Playlist Area -->
+    <div class="playlist-container">
+      <h3 class="playlist-header">כל הפרקים</h3>
+      <div class="playlist" id="playlist">
+        
+        <div class="playlist-item active" data-id="vision">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="item-content">
+            <div class="item-title">אדמתנו ביתנו: חזון פיננסי</div>
+            <div class="item-duration">צפו עכשיו</div>
+          </div>
+        </div>
+
+        <div class="playlist-item" data-id="power">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="item-content">
+            <div class="item-title">הכוח הסמוי של האדמה</div>
+            <div class="item-duration">צפו עכשיו</div>
+          </div>
+        </div>
+
+        <div class="playlist-item" data-id="refinance">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="item-content">
+            <div class="item-title">מחזור משכנתא: המדריך לחיסכון</div>
+            <div class="item-duration">צפו עכשיו</div>
+          </div>
+        </div>
+
+        <div class="playlist-item" data-id="real-estate">
+          <div class="item-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="item-content">
+            <div class="item-title">מימון נדל״ן: אדמתנו ביתנו</div>
+            <div class="item-duration">צפו עכשיו</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="לוגו אדמתנו ביתנו" class="brand-logo" width="48" height="48" />
+          <span>אדמתנו ביתנו בע"מ</span>
+        </div>
+        <p>מביאים פתרונות משכנתא ומימון מותאמים לחברה הערבית, במקצוענות, בשקיפות ובמסירות מאז 2008.</p>
+      </div>
+      <div class="footer-col">
+        <h4>קישורים מהירים</h4>
+        <ul>
+          <li><a href="index.html#about">מי אנחנו</a></li>
+          <li><a href="index.html#services">שירותים</a></li>
+          <li><a href="articles.html">מאמרים</a></li>
+          <li><a href="podcasts.html">פודקאסטים</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>יצירת קשר</h4>
+        <ul>
+          <li>טלפון: <a href="tel:0587554588" dir="ltr">058-7554588</a></li>
+          <li>מייל: <a href="mailto:office@ourland.co.il">office@ourland.co.il</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 אדמתנו ביתנו משכנתאות והלוואות בע"מ. כל הזכויות שמורות.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Whatsapp Float Button -->
+<a href="https://wa.me/972587554588" class="float-whatsapp" target="_blank" rel="noopener" aria-label="שלחו לנו הודעה בוואטסאפ">
+  <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ============================ SCRIPTS ============================ -->
+<script>
+  // Mobile Nav Logic
+  const navToggle = document.querySelector('.nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  const closeNav = document.querySelector('.close-nav');
+
+  navToggle.addEventListener('click', () => {
+    mobileNav.classList.add('active');
+  });
+  closeNav.addEventListener('click', () => {
+    mobileNav.classList.remove('active');
+  });
+
+  // Podcasts Logic
+  const podcastsData = {
+    'vision': {
+      title: 'אדמתנו ביתנו: חזון פיננסי',
+      desc: 'היכרות עם הבית הפיננסי של החברה הערבית בישראל - החזון, הערכים והפתרונות הייחודיים שאנו מציעים לכל משפחה.',
+      file: 'assets/videos/vision.mp4'
+    },
+    'power': {
+      title: 'הכוח הסמוי של האדמה',
+      desc: 'איך למנף נכסים משפחתיים קיימים, גם אם הם ללא טאבו או בהליכי הסדרה, כדי לקבל מימון בתנאים מצוינים.',
+      file: 'assets/videos/power.mp4'
+    },
+    'refinance': {
+      title: 'מחזור משכנתא: המדריך לחיסכון',
+      desc: 'כל מה שצריך לדעת על מחזור משכנתא מותאם למגזר. איך לחסוך עשרות ומאות אלפי שקלים ולהקטין את ההחזר החודשי.',
+      file: 'assets/videos/refinance.mp4'
+    },
+    'real-estate': {
+      title: 'מימון נדל״ן: אדמתנו ביתנו',
+      desc: 'המדריך המלא לקבלת מימון לעסקאות נדל״ן מורכבות בחברה הערבית - ירושות, בנייה בשלבים ופתרונות חוץ-בנקאיים.',
+      file: 'assets/videos/real-estate.mp4'
+    }
+  };
+
+  const videoEl = document.getElementById('main-video');
+  const titleEl = document.getElementById('video-title');
+  const descEl = document.getElementById('video-desc');
+  const shareBtn = document.getElementById('share-facebook');
+  const items = document.querySelectorAll('.playlist-item');
+
+  function loadPodcast(id, autoplay = true) {
+    if(!podcastsData[id]) id = 'vision'; // fallback
+    const data = podcastsData[id];
+    
+    // Update Video
+    videoEl.src = data.file;
+    if(autoplay) {
+      videoEl.play().catch(e => console.log('Autoplay prevented', e));
+    }
+
+    // Update Text
+    titleEl.textContent = data.title;
+    descEl.textContent = data.desc;
+
+    // Update URL & Share Link
+    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?v=' + id;
+    window.history.pushState({path:newUrl}, '', newUrl);
+    
+    // Facebook Share URL
+    const fbShareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(newUrl);
+    shareBtn.href = fbShareUrl;
+
+    // Update Meta tags for current session (though FB scrapes raw HTML)
+    document.title = data.title + ' | פודקאסט אדמתנו ביתנו';
+
+    // Update Active Class in Playlist
+    items.forEach(item => {
+      if(item.dataset.id === id) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
+
+  // Handle Playlist Clicks
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      loadPodcast(item.dataset.id, true);
+      // Scroll up to video on mobile
+      if(window.innerWidth < 992) {
+        document.querySelector('.video-player-container').scrollIntoView({behavior: 'smooth', block: 'start'});
+      }
+    });
+  });
+
+  // Load from URL parameter on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const videoParam = urlParams.get('v');
+    // We don't autoplay on initial load to avoid browser autoplay restrictions unless user clicks
+    loadPodcast(videoParam || 'vision', false);
+  });
+
+</script>
+</body>
+</html>
