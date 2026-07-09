@@ -116,8 +116,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .brand-text strong { font-family: var(--font-head); font-weight: 900; color: var(--navy); font-size: 1.12rem; }
 .brand-text small { color: var(--muted); font-size: .72rem; }
 
-.main-nav { display: none; gap: 22px; margin-inline-start: auto; }
-.main-nav a { color: var(--navy); font-weight: 600; font-size: .98rem; position: relative; }
+.main-nav { display: none; gap: 14px; margin-inline-start: auto; }
+.main-nav a { color: var(--navy); font-weight: 600; font-size: .95rem; position: relative; white-space: nowrap; }
 .main-nav a::after { content: ""; position: absolute; right: 0; bottom: -4px; height: 2px; width: 0; background: var(--teal); transition: width .25s; }
 .main-nav a:hover::after { width: 100%; }
 
