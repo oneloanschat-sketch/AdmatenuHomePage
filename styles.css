@@ -114,7 +114,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .brand-logo { height: 50px; width: auto; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
 .brand-text strong { font-family: var(--font-head); font-weight: 900; color: var(--navy); font-size: 1.12rem; }
-.brand-text small { color: var(--muted); font-size: .72rem; }
+.brand-text small { color: var(--muted); font-size: .72rem; white-space: nowrap; }
 
 .main-nav { display: none; gap: 14px; margin-inline-start: auto; }
 .main-nav a { color: var(--navy); font-weight: 600; font-size: .95rem; position: relative; white-space: nowrap; }
