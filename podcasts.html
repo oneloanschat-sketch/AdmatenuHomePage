@@ -158,6 +158,97 @@
     </div>
 
   </div>
+
+<section class="lead" id="lead-form" aria-labelledby="lead-title">
+  <div class="container container-narrow">
+    <div class="section-head reveal">
+      <span class="kicker kicker-green">בדקו זכאות עכשיו</span>
+      <h2 id="lead-title">ייעוץ ראשוני חינם, ללא התחייבות</h2>
+      <p class="lead">השאירו פרטים — נחזור אליכם עם פתרון מותאם אישית. אתם גם מוזמנים להתקשר או לשלוח וואטסאפ.</p>
+    </div>
+
+    <form class="lead-form" id="leadForm" novalidate
+          action="https://formsubmit.co/ajax/spiraly4u@gmail.com"
+          method="POST">
+      <!-- ============================================================
+           שליחת הטופס דרך Web3Forms (חינמי, מתאים לאתר סטטי):
+           החליפו את YOUR_WEB3FORMS_ACCESS_KEY במפתח האמיתי שתקבלו
+           בחינם מ-https://web3forms.com (הלידים יישלחו למייל שתגדירו).
+           הוראות מלאות ב-README.md.
+           ============================================================ -->
+
+      <div class="field">
+        <label for="fullname">שם מלא <span aria-hidden="true">*</span></label>
+        <input type="text" id="fullname" name="שם מלא" autocomplete="name" required aria-required="true" />
+        <small class="err" data-for="fullname"></small>
+      </div>
+
+      <div class="field">
+        <label for="phone">טלפון <span aria-hidden="true">*</span></label>
+        <input type="tel" id="phone" name="טלפון" inputmode="tel" autocomplete="tel" placeholder="05X-XXXXXXX" required aria-required="true" />
+        <small class="err" data-for="phone"></small>
+      </div>
+
+      <div class="field">
+        <label for="city">עיר / יישוב</label>
+        <input type="text" id="city" name="עיר" autocomplete="address-level2" />
+      </div>
+
+      <div class="field">
+        <label for="need">סוג הצורך</label>
+        <select id="need" name="סוג הצורך">
+          <option value="איחוד הלוואות">איחוד הלוואות</option>
+          <option value="משכנתא לכל מטרה">משכנתא לכל מטרה</option>
+          <option value="משכנתא לדיור">משכנתא לדיור (רכישה / בנייה / שיפוץ)</option>
+          <option value="מחזור משכנתא">מחזור משכנתא</option>
+          <option value="משכנתא משולבת">משכנתא משולבת</option>
+          <option value="משכנתא מסחרית">משכנתא מסחרית</option>
+          <option value="משכנתא למסורבי בנק">משכנתא למסורבי בנק</option>
+          <option value="ביטוח משכנתא">ביטוח משכנתא</option>
+          <option value="אחר">אחר</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <span class="field-label">האם אתם בעלי נכס?</span>
+        <div class="radio-row" role="radiogroup" aria-label="האם אתם בעלי נכס">
+          <label class="radio"><input type="radio" name="בעל נכס" value="כן" checked /> כן</label>
+          <label class="radio"><input type="radio" name="בעל נכס" value="לא" /> לא</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="amount">סכום מבוקש (₪)</label>
+        <input type="number" id="amount" name="סכום מבוקש" inputmode="numeric" min="0" step="1000" placeholder="לדוגמה: 250000" />
+      </div>
+
+      <div class="field field-full">
+        <label for="note">הערה</label>
+        <textarea id="note" name="הערה" rows="3" placeholder="ספרו לנו בקצרה איך נוכל לעזור"></textarea>
+      </div>
+
+      <!-- שדות מובנים נסתרים (FormSubmit.co) -->
+      <input type="hidden" name="_subject" value="ליד חדש מהאתר — אדמתנו ביתנו" />
+      <input type="hidden" name="_cc" value="yoniwh@gmail.com,sapiri0911@gmail.com" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="LeadID" id="leadId" value="" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="field field-full">
+        <button type="submit" class="btn btn-success btn-lg btn-block" data-track="form_submit">שלחו ובדקו זכאות בחינם</button>
+      </div>
+
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="lead-alt reveal">
+      <span>מעדיפים לדבר עכשיו?</span>
+      <a class="btn btn-whatsapp" href="https://wa.me/972587554588" target="_blank" rel="noopener" data-track="whatsapp_form">וואטסאפ 058-755-4588</a>
+      <a class="btn btn-ghost-dark" href="tel:0545554588" data-track="call_form">חיוג 054-555-4588</a>
+    </div>
+  </div>
+</section>
 </main>
 
 <!-- ============================ FOOTER ============================ -->
@@ -184,7 +275,7 @@
         <h4>יצירת קשר</h4>
         <ul>
           <li>טלפון: <a href="tel:0587554588" dir="ltr">058-7554588</a></li>
-          <li>מייל: <a href="mailto:office@ourland.co.il">office@ourland.co.il</a></li>
+          <li>מייל: <a href="mailto:admateinu.beitenu@gmail.com">admateinu.beitenu@gmail.com</a></li>
         </ul>
       </div>
     </div>
