@@ -275,7 +275,7 @@
 /* ===== WOW CHATBOT ===== */
 .wow-chatbot {
   position: fixed;
-  bottom: 120px;
+  bottom: 26px;
   right: 26px;
   z-index: 999;
   display: flex;
@@ -285,7 +285,7 @@
 }
 
 @media (max-width: 768px) {
-  .wow-chatbot { bottom: 100px; right: 20px; }
+  .wow-chatbot { bottom: 20px; right: 20px; }
 }
 
 .chatbot-bubble {
