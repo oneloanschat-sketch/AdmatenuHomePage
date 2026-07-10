@@ -1,9 +1,6 @@
 name: Auto Marketing Agent (Cloud)
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     # רץ כל יום בשעה 09:10 UTC (שזה 12:10 שעון ישראל בקיץ)
     - cron: '10 9 * * *'
