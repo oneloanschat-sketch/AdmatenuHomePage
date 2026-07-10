@@ -2,8 +2,8 @@ name: Auto Marketing Agent (Cloud)
 
 on:
   schedule:
-    # רץ כל יום בשעה 09:10 UTC (שזה 12:10 שעון ישראל בקיץ)
-    - cron: '10 9 * * *'
+    # רץ כל יום בשעה 14:00 UTC (שזה 17:00 שעון ישראל בקיץ, ו-16:00 בחורף)
+    - cron: '0 14 * * *'
   workflow_dispatch: # מאפשר הפעלה ידנית מתי שרוצים!
 
 jobs:
