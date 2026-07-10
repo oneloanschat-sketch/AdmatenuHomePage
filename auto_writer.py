@@ -174,10 +174,38 @@ def generate_article_html():
         if html_content.endswith("```"):
             html_content = html_content[:-3]
             
-        return html_content.strip()
+        return html_content.strip(), topic
     except Exception as e:
         print(f"❌ שגיאה בהפעלת המודל: {e}")
-        return None
+        return None, None
+
+def generate_facebook_post(topic):
+    """מייצר פוסט פייסבוק קצר ומושך המבוסס על נושא המאמר, כולל לינק."""
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        return
+        
+    genai.configure(api_key=api_key)
+    
+    prompt = f"""
+    כתוב פוסט קצר, קולע ומושך לפייסבוק (עד 3-4 משפטים) עבור עמוד "אדמתנו ביתנו".
+    נושא המאמר היום: {topic}.
+    
+    בסוף הפוסט, הוסף קריאה לפעולה עם הקישור הבא למאמר המלא באתר:
+    https://www.ourland.co.il/articles.html
+    
+    חובה להחזיר רק את הטקסט של הפוסט, ללא שום תוספות.
+    """
+    try:
+        model = genai.GenerativeModel('gemini-2.5-flash')
+        response = model.generate_content(prompt)
+        post_text = response.text.strip()
+        
+        with open("latest_facebook_post.txt", "w", encoding="utf-8") as f:
+            f.write(post_text)
+        print("✅ פוסט לפייסבוק נוצר ונשמר בהצלחה!")
+    except Exception as e:
+        print(f"❌ שגיאה ביצירת פוסט פייסבוק: {e}")
 
 def inject_to_website(new_html):
     """שותל את המאמר החדש בראש רשימת המאמרים בקובץ articles.html"""
@@ -206,6 +234,7 @@ def inject_to_website(new_html):
 
 if __name__ == "__main__":
     print("מתחיל תהליך כתיבה אוטומטי (Auto Writer)...")
-    article_html = generate_article_html()
+    article_html, topic = generate_article_html()
     if article_html:
         inject_to_website(article_html)
+        generate_facebook_post(topic)

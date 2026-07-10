@@ -55,15 +55,16 @@ if __name__ == "__main__":
     print("מריץ אוטומציית פרסום לעמוד הפייסבוק 🚀")
     print("---------------------------------------------------------")
     
-    text = (
-        "איך המשכנתא שלכם יכולה להציל אתכם ממינוס תמידי? 🤔\n"
-        "הרבה אנשים לא יודעים את זה, אבל הנכס שלכם יכול לחלץ אתכם מהלוואות קטנות, ריביות מטורפות בכרטיסי אשראי והלוואות צרכניות.\n"
-        "הפתרון נקרא \"איחוד הלוואות תחת משכנתא\" – מחזירים הלוואה אחת גדולה עם ריבית של משכנתא (שהיא נמוכה יותר מכל הלוואה רגילה בבנק), והתזרים החודשי שלכם קופץ פלאים!\n"
-        "רוצים לדעת אם זה מתאים לכם? דברו איתנו בפרטי או בתגובות ⬇️\n"
-        "#משכנתא #איחודהלוואות #אדמתנוביתנו #פיננסים"
-    )
-    
-    # מיקום התמונה המקומית בתיקיית ה-artifacts
-    image_path = r"C:\Users\1\.gemini\antigravity-ide\brain\57a1f589-9981-4950-99df-58b621d9e3f8\debt_consolidation_ad_1783072858495.png"
-    
-    post_to_facebook(text, local_image_path=image_path)
+    post_file = "latest_facebook_post.txt"
+    if os.path.exists(post_file):
+        with open(post_file, "r", encoding="utf-8") as f:
+            text = f.read().strip()
+            
+        if text:
+            # We no longer use a local image, Facebook will fetch the og:image from the link
+            post_to_facebook(text, local_image_path=None)
+        else:
+            logger.error("❌ הקובץ latest_facebook_post.txt ריק!")
+    else:
+        logger.error(f"❌ לא נמצא הקובץ {post_file}. יש להריץ את auto_writer.py קודם.")
+
