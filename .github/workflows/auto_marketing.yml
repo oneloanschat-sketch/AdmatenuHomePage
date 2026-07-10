@@ -43,4 +43,4 @@ jobs:
           git config --global user.name "Auto Marketing Agent"
           git config --global user.email "agent@admatenu.co.il"
           git add articles.html
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-published new article 📝" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-published new article 📝" && git pull --rebase && git push)
